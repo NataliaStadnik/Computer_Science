@@ -26,7 +26,7 @@ class Http {
         this.httpConnection.request(url,'GET');
     }
 
-    post() {
+    post(url: string) {
         this.httpConnection.request(url,'POST');
     }
 }

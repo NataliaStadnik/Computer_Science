@@ -2,19 +2,23 @@
 // - Из-за характера распространения, похожего на волну, алгоритм еще называют волновым.
 // Object(V+E) - V-количество вершин  E- количество ребер
 
-const bfs = (graph, start) => {
-  let visited = [];
-  let needVisit = [];
-  needVisit.push(start);
+function bfs(graph, start) {
+  const queue = [start];
+  const visited = new Set();
+  const result = [];
 
-  while (needVisit.length !== 0) {
-    let node = needVisit.shift();
-    if (!visited.includes(node)) {
-      visited.push(node);
+  while (queue.length) {
+    const vertex = queue.shift();
 
-      const tmp = !graph[node] ? [] : graph[node];
-      needVisit = [...needVisit, ...tmp];
+    if (!visited.has(vertex)) {
+      visited.add(vertex);
+      result.push(vertex);
+
+      for (const neighbor of graph[vertex]) {
+        queue.push(neighbor);
+      }
     }
   }
-  return visited.join(" ");
-};
+
+  return result;
+}

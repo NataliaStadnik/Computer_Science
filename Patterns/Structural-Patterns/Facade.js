@@ -60,15 +60,6 @@ class CoffeeMashineFacade {
     this.machine = machine;
     this.water = water;
     this.coffee = coffee;
-    if (!machine) {
-      throw new Error(`В ${this.constructor.name} не указан аргумент machine`);
-    }
-    if (!water) {
-      throw new Error(`В ${this.constructor.name} не указан аргумент water`);
-    }
-    if (!coffee) {
-      throw new Error(`В ${this.constructor.name} не указан аргумент coffee`);
-    }
   }
 
   turnOn() {

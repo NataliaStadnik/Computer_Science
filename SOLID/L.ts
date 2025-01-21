@@ -52,7 +52,7 @@ class PersonFromDifferentCompany extends Guest {
     }
 }
 
-function openSecretDoor(member) {
+function openSecretDoor(member: Frontend | Backend | PersonFromDifferentCompany) {
     member.access()
 }
 

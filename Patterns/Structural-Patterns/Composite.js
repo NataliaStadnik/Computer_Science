@@ -16,7 +16,7 @@ class ProductComposite {
   constructor(name) {
     this.items = [];
     if (name) {
-      this.items.push(new Document(name));
+      this.items.push(new Product(name));
     }
   }
 

@@ -3,31 +3,6 @@
 // Паттерн Строитель предлагает вынести конструирование объекта за пределы его собственного класса,
 // поручив это дело отдельным объектам, которые следует называть строителями.
 
-class AbstactHouse {
-  constructor(builder) {
-    this.size = builder.size;
-    this.wall = builder.wall || false;
-    this.roof = builder.roof || false;
-    this.door = builder.door || false;
-  }
-}
-
-class SmallHouse extends AbstactHouse {
-  constructor(builder) {
-    super(builder);
-    this.pipe = builder.pipe;
-    this.window = builder.window;
-  }
-}
-
-class Skyscraper extends AbstactHouse {
-  constructor(builder) {
-    super(builder);
-    this.elevator = builder.elevator;
-    this.stairs = builder.stairs;
-  }
-}
-
 class Builder {
   constructor(size) {
     this.size = size;

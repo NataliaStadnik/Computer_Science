@@ -1,19 +1,23 @@
 // В отличие от алгоритма BFS, поиск в глубину ищет не самый короткий, а случайный путь.
 // Классическая реализация DFS — рекурсивная.
 
-const dfs = (graph, start) => {
-  let visited = [];
-  let needVisit = [];
-  needVisit.push(start);
+function dfs(graph, start) {
+  const stack = [start];
+  const visited = new Set();
+  const result = [];
 
-  while (needVisit.length !== 0) {
-    let node = needVisit.shift();
-    if (!visited.includes(node)) {
-      visited.push(node);
+  while (stack.length) {
+    const vertex = stack.pop();
 
-      const tmp = !graph[node] ? [] : graph[node];
-      needVisit = [...tmp, ...needVisit];
+    if (!visited.has(vertex)) {
+      visited.add(vertex);
+      result.push(vertex);
+
+      for (const neighbor of graph[vertex]) {
+        stack.push(neighbor);
+      }
     }
   }
-  return visited.join(" ");
-};
+
+  return result;
+}
