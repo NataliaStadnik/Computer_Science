@@ -18,7 +18,6 @@ function binarySearch(arr, targetNumber) {
     if (arr[mid] === targetNumber) {
       foundIndex = mid;
       break;
-      status;
     } else if (arr[mid] < targetNumber) {
       left = mid + 1;
     } else {
