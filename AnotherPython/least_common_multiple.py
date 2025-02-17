@@ -1,4 +1,4 @@
-def arr(a, b):
+def least_common_multiple(a, b):
     m = a * b
     while a != 0 and b != 0:
         if a > b:
@@ -10,5 +10,5 @@ def arr(a, b):
 
 a = int(input())
 b = int(input())
-print(arr(a, b))
+print(least_common_multiple(a, b))
 
